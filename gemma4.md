@@ -48,6 +48,11 @@ Crie uma página /stats com estatísticas dos hábitos:
   - 3. mudou a cor de fundo sozinho criando um contraste ruim
   - 4. painel de estatísticas sumiu
   - 5. erro na hora de editar um arquivo, não sei se é da LLM ou do opencode
+  - 6. novamente erros, a LLM parece ter dificuldade em editar arquivos já esistentes
+  - 7. novamente ferramenta entrou em loop e não consegue fazer a correção (gerou arquivo incompleto)
+  - 8. aceitei as sugestões de correção do Gemini 3 Flash
+
+Abandonei o projeto aqui
 
 ------------------------------------------------------------------------------------------
 

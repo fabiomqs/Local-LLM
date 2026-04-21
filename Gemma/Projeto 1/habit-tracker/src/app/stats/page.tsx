@@ -139,7 +139,147 @@ export default function StatsPage() {
           </button>
         </div>
       </header>
+      
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="bg-slate-900/50 p-6 rounded-2xl border border-slate-800">
+          <div className="flex items-center gap-4 mb-4">
+            <div className="p-3 bg-blue-500/10 rounded-xl">
+              <Trophy className="text-blue-500" size={24} />
+            </div>
+            <h3 className="text-sm font-medium text-slate-400">Mais Consistente</h3>
+          </div>
+          {mostConsistent ? (
+            <div>
+              <p className="text-2xl font-bold text-white">{mostConsistent.name}</p>
+              <p className="text-sm text-blue-400 mt-1">{mostConsistent.rate.toFixed(1)}% de taxa</p>
+            </div>
+          ) : (
+            <p className="text-slate-500">Sem dados disponíveis</p>
+          )}
+        </div>
+
+        <div className="bg-slate-900/50 p-6 rounded-2xl border border-slate-800">
+          <div className="flex items-center gap-4 mb-4">
+            <div className="p-3 bg-emerald-500/10 rounded-xl">
+              <TrendingUp className="text-emerald-500" size={24} />
+            </div>
+            <h3 className="text-sm font-medium text-slate-400">Melhor Dia</h3>
+          </div>
+          {bestDay && bestDay.count > 0 ? (
+            <div>
+              <p className="text-2xl font-bold text-white">{bestDay.day}</p>
+              <p className="text-sm text-emerald-400 mt-1">{bestDay.count} conclusões</p>
+            </div>
+          ) : (
+            <p className="text-slate-500">Sem dados disponíveis</p>
+          )}
+        </div>
+
+        <div className="bg-slate-900/50 p-6 rounded-2xl border border-slate-800">
+          <div className="flex items-center gap-4 mb-4">
+            <div className="p-3 bg-rose-500/10 rounded-xl">
+              <TrendingDown className="text-rose-500" size={24} />
+            </div>
+            <h3 className="text-sm font-medium text-slate-400">Pior Dia</h3>
+          </div>
+          {worstDay && worstDay.count > 0 ? (
+            <div>
+              <p className="text-2xl font-bold text-white">{worstDay.day}</p>
+              <p className="text-sm text-rose-400 mt-1">{worstDay.count} conclusões</p>
+            </div>
+          ) : (
+            <p className="text-slate-500">Sem dados disponíveis</p>
+          )}
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="bg-slate-900/50 p-6 rounded-2xl border border-slate-800">
+          <div className="flex items-center gap-4 mb-6">
+            <div className="p-3 bg-indigo-500/10 rounded-xl">
+              <Activity className="text-indigo-500" size={24} />
+            </div>
+            <h3 className="text-lg font-semibold text-white">Taxa de Conclusão Semanal</h3>
+          </div>
+          <div className="h-[300px] w-full">
+            <ResponsiveContainer width="100%" height="100%">
+              <AreaChart data={weeklyData}>
+                <defs>
+                  <linearGradient id="colorPerc" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="5%" stopColor="#6366f1" stopOpacity={0.3}/>
+                    <stop offset="95%" stopColor="#6366f1" stopOpacity={0}/>
+                  </linearGradient>
+                </defs>
+                <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" vertical={false} />
+                <XAxis 
+                  dataKey="day" 
+                  axisLine={false} 
+                  tickLine={false} 
+                  tick={{fill: '#94a3b8', fontSize: 12}}
+                  dy={10}
+                />
+                <YAxis 
+                  axisLine={false} 
+                  tickLine={false} 
+                  tick={{fill: '#94a3b8', fontSize: 12}}
+                  dx={-10}
+                />
+                <Tooltip 
+                  contentStyle={{ backgroundColor: '#0f172a', borderColor: '#1e293b', color: '#f8fafc' }}
+                  itemStyle={{ color: '#6366f1' }}
+                />
+                <Area 
+                  type="monotone" 
+                  dataKey="percentage" 
+                  stroke="#6366f1" 
+                  fillOpacity={1} 
+                  fill="url(#colorPerc)" 
+                  strokeWidth={2}
+                />
+              </AreaChart>
+            </ResponsiveContainer>
+          </div>
+        </div>
+
+        <div className="bg-slate-900/50 p-6 rounded-2xl border border-slate-800">
+          <div className="flex items-center gap-4 mb-6">
+            <div className="p-3 bg-amber-500/10 rounded-xl">
+              <Calendar className="text-amber-500" size={24} />
+            </div>
+            <h3 className="text-lg font-semibold text-white">Distribuição por Dia</h3>
+          </div>
+          <div className="h-[300px] w-full">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={dayDistribution}>
+                <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" vertical={false} />
+                <XAxis 
+                  dataKey="day" 
+                  axisLine={false} 
+                  tickLine={false} 
+                  tick={{fill: '#94a3b8', fontSize: 12}}
+                  dy={10}
+                />
+                <YAxis 
+                  axisLine={false} 
+                  tickLine={false} 
+                  tick={{fill: '#94a3b8', fontSize: 12}}
+                  dx={-10}
+                />
+                <Tooltip 
+                  cursor={{fill: '#1e293b'}}
+                  contentStyle={{ backgroundColor: '#0f172a', borderColor: '#1e293b', color: '#f8fafc' }}
+                  itemStyle={{ color: '#f59e0b' }}
+                />
+                  <Bar dataKey="count" radius={[4, 4, 0, 0]}>
+                    {dayDistribution.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={entry.count > 0 ? '#f59e0b' : '#334155'} />
+                    ))}
+                  </Bar>
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
-
