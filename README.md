@@ -1,16 +1,18 @@
 # Local-LLM
 Comparação entre modelos de IA Local
+Como as IAs Locais decepcionaram testei também os mesmos prompts com IAs gratuitas e pagas
 
 ## Modelos 
-- qwen3.5-codex
-- gemma4:26b
+- [gemma4:26b - abandonado](gemma4.md)
+- [qwen3-coder - abandonado](Qwen3-coder.md)
+- [qwen3.5:9b - abandonado](Qwen3.5.md)
+- [Nemotron 3 Super (Free) - abandonado](Nemotron 3 Super.md)
+- [Bigle Pickle (Free) - finalizado](Bigle Pickle.md)
+- [MiniMax M2.5 (Free) - finalizado](MiniMax M2.5.md)
+- [GPT5.3-Codex (assinatura paga) - finalizado](GPT5.3-codex.md)
+- [Gemini 3 Flash (assinatura paga) - finalizado](Gemini 3 Flash.md)
 
-Bigle Pickle (Free)
-MiniMax M2.5 (Free)
-
-- qwen3.6:latest: ficou muito lento pra utilizar
-
-- GPT2.3-Codex (assinatura paga)
+- qwen3.6:latest: não testado, ficou muito lento pra utilizar
 
 ## Ferramentas utilizadas
 - IDE Antigravity com plug-in do opencode (conexão via rede local)

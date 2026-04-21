@@ -1,12 +1,7 @@
 # Prompts
 ## Projeto 1
-### Prompt 1
-/init
-- Tempo: 
-- Erros:
-- Correções
-- Comentários
-### Prompt 2 (Plan mode)
+
+### Prompt 1 (Plan/Build mode)
 Gere o plano de Implementação para o seguinte sistema
 Crie um dashboard de hábitos (habit tracker) com as seguintes funcionalidades:
 - Lista de hábitos com checkbox para marcar como feito no dia
@@ -33,7 +28,7 @@ Projeto abandonado aqui
 
 
 
-### Prompt 3 (Build mode)
+### Prompt 2 (Build mode)
 
 Crie uma página /stats com estatísticas dos hábitos:
 - Hábito mais consistente

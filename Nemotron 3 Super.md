@@ -1,6 +1,6 @@
 # Prompts
 ## Projeto 1
-
+configurado como medium
 ### Prompt 1 (Plan/Build mode)
 Gere o plano de Implementação para o seguinte sistema
 Crie um dashboard de hábitos (habit tracker) com as seguintes funcionalidades:
@@ -13,20 +13,21 @@ Crie um dashboard de hábitos (habit tracker) com as seguintes funcionalidades:
 
 Importante: Apenas gere o plano de implementação. Não execute nenhum comando. Não crie arquivos. Não instale dependências ainda. Quero revisar e aprovar o plano de qualquer execução.
 
-
-- Notas:
-  - build inicial não funciona, só aparece a página do Next
-  - se perdeu completamnete no diretório, criou outra pasta src
+- Notas: 
+  - gerou com erro, somente mostra página inicial do Next, se atrapalhou com os diretórios
+  - está com dificuldade de realizar a correção e demorando bastante
+  - não conseguiu corrigir o erro e ainda retornou mensagem "Provider returne Error"
 
 Abandonado aqui
 
-### Prompt 3 (Build mode)
+### Prompt 2 (Plan/Build mode)
 
 Crie uma página /stats com estatísticas dos hábitos:
 - Hábito mais consistente
 - Taxa de conclusão por semanal
 - Melhor e pior dia da semanal
 - Use o Recharts para os gráficos
+
 
 ------------------------------------------------------------------------------------------
 
