@@ -124,7 +124,7 @@ export default function HabitTracker() {
   const todayStr = format(new Date(), 'yyyy-MM-dd');
 
   return (
-    <div className="max-w-2xl mx-auto p-6 space-y-8 text-slate-100 min-h-screen bg-slate-950">
+    <div className="space-y-8 text-slate-100">
       <header className="flex items-center justify-between">
         <div className="space-y-1">
           <h1 className="text-3xl font-bold tracking-tight text-white">Meus Hábitos</h1>
